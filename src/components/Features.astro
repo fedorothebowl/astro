@@ -1,0 +1,48 @@
+---
+import Card from "../components/Card.astro";
+const featuresData = [
+  {
+    title: "Zero JavaScript Runtime 1",
+    description:
+      "Astro renders HTML on the server and strips away any remaining, unused JavaScript.",
+      dark:true,
+    },
+  {
+    title: "Zero JavaScript Runtime 2",
+    description:
+      "Astro renders HTML on the server and strips away any remaining, unused JavaScript.",
+    },
+  {
+    title: "Zero JavaScript Runtime 3",
+    description:
+      "Astro renders HTML on the server and strips away any remaining, unused JavaScript.",
+      dark:true,
+    },
+];
+---
+
+<section class="features">
+  <div class="container">
+    {featuresData.map((feature) => (
+        <Card dark={feature.dark}>
+          <h3>{feature.title}</h3>
+          <p>{feature.description}</p>
+        </Card>
+      ))}
+  </div>
+</section>
+
+<style>
+  .features .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    padding: 0 20px;
+    margin: 30px auto;
+  }
+  @media (max-width: 500px) {
+    .features .container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
